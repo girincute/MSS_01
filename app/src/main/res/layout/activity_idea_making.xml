@@ -2,6 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:background="#FFFFFF"
                 android:layout_height="match_parent" android:layout_width="match_parent">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:background="@drawable/titlebar"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -9,42 +19,48 @@
         android:layout_alignParentTop="true"
         android:orientation="horizontal"
         android:gravity="right"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="60dp"
         android:id="@+id/linearLayout">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:text="제목 :"
+            android:textColor="#111111"
+            android:textSize="21dp"/>
         <EditText
-            android:layout_width="200dp"
-            android:layout_height="10dp"/>
+            android:id="@+id/insertTitle"
+            android:hint="제목을 입력하세요"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="30dp"/>
 
         <ImageButton android:id="@+id/refreshButton"
-                     android:layout_marginTop="15dp"
-                     android:layout_height="50dp"
-                     android:layout_width="50dp"
-                     android:src="@drawable/ic_refresh_black_24dp">
+                     android:layout_marginTop="26dp"
+                     android:layout_height="35dp"
+                     android:layout_width="35dp"
+                     android:src="@drawable/random"
+                     android:scaleType="centerInside"
+                     android:background="@null">
 
         </ImageButton>
 
         <ImageButton android:id="@+id/saveButton"
-                     android:layout_marginTop="15dp"
-                     android:layout_height="50dp"
-                     android:layout_width="50dp"
+                     android:layout_marginTop="26dp"
+                     android:layout_height="35dp"
+                     android:layout_width="35dp"
+                     android:background="@null"
+                     android:layout_marginLeft="10dp"
                      android:layout_marginRight="16dp"
-                     android:src="@drawable/ic_save_black_24dp">
+                     android:scaleType="centerInside"
+                     android:src="@drawable/save">
 
         </ImageButton>
 
-        <!--<ImageButton android:id="@+id/deleteButton"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:layout_width="50dp"-->
-        <!--android:src="@drawable/ic_delete_black_24dp"-->
-        <!--android:layout_marginRight="20dp">-->
-
-        <!--</ImageButton>-->
-
-
-
     </LinearLayout>
 
-    <TableLayout
+ <TableLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="370dp"
@@ -57,35 +73,42 @@
         android:layout_alignTop="@+id/linearLayout"
         android:layout_alignParentStart="true"
         android:layout_marginTop="72dp">
+
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
+
             <CheckBox
                 android:id="@+id/checkBox1"
-                android:layout_width="20dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="5dp"
-                android:background="#FFEB98"
+                android:background="#FFDF85"
+                android:buttonTint="#7F5B13"
+                android:baselineAligned="false"
                 android:checked="false"/>
+
             <CheckBox
                 android:id="@+id/checkBox2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:background="#FFEB98"
+                android:background="#FFDF85"
+                android:buttonTint="#7F5B13"
                 android:checked="false"/>
+
             <CheckBox
                 android:id="@+id/checkBox3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="20dp"
-                android:background="#FFEB98"
+                android:background="#FFDF85"
+                android:buttonTint="#7F5B13"
                 android:checked="false"/>
-
 
 
         </TableRow>
@@ -100,47 +123,44 @@
 
             <EditText
                 android:id="@+id/editText01"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:layout_width="70dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:background="#dcdcdc"
-                android:backgroundTint="#FFEB98"
+                android:background="@drawable/memo"
                 android:gravity="top|center_horizontal"
                 android:padding="20dip"
-                android:text="1 1"
+                android:textSize="20dp"
                 android:textColor="#000000"/>
 
             <EditText
                 android:id="@+id/editText02"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:layout_width="70dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:background="#d3d3d3"
-                android:backgroundTint="#FFEB98"
+                android:background="@drawable/memo"
                 android:gravity="top|center_horizontal"
                 android:padding="20dip"
-                android:text="1 2"
+                android:textSize="20dp"
                 android:textColor="#000000"/>
 
             <EditText
                 android:id="@+id/editText03"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:layout_width="70dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
-                android:background="#cac9c9"
-                android:backgroundTint="#FFEB98"
+                android:background="@drawable/memo"
                 android:gravity="top|center_horizontal"
                 android:padding="20dip"
-                android:text="1 3"
+                android:textSize="20dp"
                 android:textColor="#000000"/>
 
 
@@ -157,7 +177,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="5dp"
-                android:background="#FFEB98"
+                android:background="#FFDF85"
+                android:buttonTint="#7F5B13"
                 android:checked="false"/>
             <CheckBox
                 android:id="@+id/checkBox5"
@@ -166,7 +187,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:background="#FFEB98"
+                android:background="#FFDF85"
+                android:buttonTint="#7F5B13"
                 android:checked="false"/>
             <CheckBox
                 android:id="@+id/checkBox6"
@@ -175,15 +197,11 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="20dp"
-                android:background="#FFEB98"
+                android:background="#FFDF85"
+                android:buttonTint="#7F5B13"
                 android:checked="false"/>
 
-
-
         </TableRow>
-
-        <!-- Row 2 with 3 columns -->
-
 
         <TableRow
             android:id="@+id/tableRow1"
@@ -192,47 +210,44 @@
 
             <EditText
                 android:id="@+id/editText04"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:layout_width="70dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:background="#dcdcdc"
-                android:backgroundTint="#FFEB98"
+                android:background="@drawable/memo"
                 android:gravity="top|center_horizontal"
                 android:padding="20dip"
-                android:text="2 1"
+                android:textSize="20dp"
                 android:textColor="#000000"/>
 
             <EditText
                 android:id="@+id/editText05"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:layout_width="70dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:background="#d3d3d3"
-                android:backgroundTint="#FFEB98"
+                android:background="@drawable/memo"
                 android:gravity="top|center_horizontal"
                 android:padding="20dip"
-                android:text="2 2"
+                android:textSize="20dp"
                 android:textColor="#000000"/>
 
             <EditText
                 android:id="@+id/editText06"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:layout_width="70dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
-                android:background="#cac9c9"
-                android:backgroundTint="#FFEB98"
+                android:background="@drawable/memo"
                 android:gravity="top|center_horizontal"
                 android:padding="20dip"
-                android:text="2 3"
+                android:textSize="20dp"
                 android:textColor="#000000"/>
 
         </TableRow>
@@ -249,7 +264,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"
-                android:background="#FFEB98"
+                android:background="#FFDF85"
+                android:buttonTint="#7F5B13"
                 android:checked="false"/>
             <CheckBox
                 android:id="@+id/checkBox8"
@@ -258,7 +274,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"
-                android:background="#FFEB98"
+                android:background="#FFDF85"
+                android:buttonTint="#7F5B13"
                 android:checked="false"/>
             <CheckBox
                 android:id="@+id/checkBox9"
@@ -267,10 +284,11 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="5dp"
-                android:background="#FFEB98"
+                android:background="#FFDF85"
+                android:buttonTint="#7F5B13"
                 android:checked="false"/>
 
-
+<!--#ffca00-->
 
         </TableRow>
         <!-- Row 3 with 2 columns -->
@@ -281,47 +299,44 @@
 
             <EditText
                 android:id="@+id/editText07"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:layout_width="70dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:background="#dcdcdc"
-                android:backgroundTint="#FFEB98"
+                android:background="@drawable/memo"
                 android:gravity="top|center_horizontal"
                 android:padding="20dip"
-                android:text="3 1"
+                android:textSize="20dp"
                 android:textColor="#000000"/>
 
             <EditText
                 android:id="@+id/editText08"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:layout_width="70dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:background="#d3d3d3"
-                android:backgroundTint="#FFEB98"
+                android:background="@drawable/memo"
                 android:gravity="top|center_horizontal"
                 android:padding="20dip"
-                android:text="3 2"
+                android:textSize="20dp"
                 android:textColor="#000000"/>
 
             <EditText
                 android:id="@+id/editText09"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:layout_width="70dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
-                android:background="#cac9c9"
-                android:backgroundTint="#FFEB98"
+                android:background="@drawable/memo"
                 android:gravity="top|center_horizontal"
-                android:padding="20dip"
-                android:text="adewdwdw"
+                android:padding="20dp"
+                android:textSize="20dp"
                 android:textColor="#000000"/>
         </TableRow>
 

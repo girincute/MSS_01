@@ -2,23 +2,102 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:background="@drawable/titlebar2"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/saveEditButton"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="355dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerInside"
+            android:background="@null"
+            android:src="@drawable/save">
+        </ImageButton>
+
+        <TextView
+            android:id="@+id/e1"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="50dp"
+            android:background="#ffdf85"
+            android:textColor="#000000"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+            android:textStyle="bold"
+            android:text="sampletext"
+            android:textSize="25dp"/>
+
+        <TextView
+            android:id="@+id/e11"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="240dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="50dp"
+            android:textAlignment="textEnd"
+            android:background="#ffdf85"
+            android:textColor="#666666"
+            android:padding="10dip"
+            android:text="2017.11.17 02:18"
+            android:textSize="14dp"/>
+
+        <TextView
+            android:id="@+id/e12"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="100dp"
+            android:background="#ffdf85"
+            android:textColor="#444444"
+            android:padding="10dip"
+            android:text="sampletext"
+            android:textSize="20dp"/>
+
+    </RelativeLayout>
+
+
     <EditText
-        android:id="@+id/editSavedIdea"
-        android:layout_weight="1" android:background="#dcdcdc"
+        android:id="@+id/e2"
+        android:textSize="20dp"
         android:textColor="#000000"
-        android:backgroundTint="#FFEB98"
-        android:layout_height="100dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:background="#FFE9B8"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="25dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:padding="20dip" android:gravity="center"
-        android:layout_width="250dp"/>
+        android:padding="10dip"
+        android:gravity="top"
+        android:hint="아이디어를 입력하세요."
+        android:layout_width="370dp"/>
 
 
-
-
+    <!--#FFE9B8-->
 
 
 

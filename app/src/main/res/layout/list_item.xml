@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical" android:layout_width="match_parent"
+              android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/listTitleView"
+        android:layout_width="360dp"
+        android:layout_height="39dp"
+        android:layout_alignEnd="@+id/listTextView"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/listTextView"
+        android:background="#FFDF85"
+        android:padding="7dp"
+        android:paddingLeft="7dp"
+        android:text="TitleView"
+        android:layout_marginTop="4dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/listDateView"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/listTitleView"
+        android:layout_alignEnd="@+id/listTitleView"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/listTextView"
+        android:layout_marginStart="220dp"
+        android:background="#FFDF85"
+        android:padding="5dp"
+        android:paddingLeft="7dp"
+        android:text="DateView"
+        android:textColor="#666666"
+        android:textSize="13dp"
+        android:textAlignment="textEnd"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:textSize="15dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginBottom="4dp"
+        android:background="#FFDF85"
+        android:textColor="#444444"
+        android:id="@+id/listTextView"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_width="360dp"
+        android:layout_height="29dp"
+        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:text="TextView"/>
+</RelativeLayout>
