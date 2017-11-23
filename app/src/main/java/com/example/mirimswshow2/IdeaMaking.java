@@ -34,12 +34,11 @@ public class IdeaMaking extends AppCompatActivity {
 
     private FirebaseDatabase mFirebaseDatabase;
 
-    // 아래 네 줄 추가한 부분임
+    // 아래 세 줄 추가한 부분임
     ArrayList<String> mArrayList = new ArrayList();
-    ArrayList<String> mArrayList2 = new ArrayList();
     int r[] = new int[9];
     String reword[] = new String[9];
-
+    int usercheck[] = new int[9];
 
     String ranWord[]={"유치원","어린이","꽃","벽돌","커튼","전구","창문","시계","피카츄","펭귄","뉴스","교복","청소년"
             ,"이모티콘","거울","파우치","화장품","향수","무드등","고양이","동물","핸드폰","지하철","버스","손잡이","의자"
@@ -137,57 +136,44 @@ public class IdeaMaking extends AppCompatActivity {
 
         button01.setOnClickListener(new View.OnClickListener() {
 
-               @Override
-               public void onClick(View v) {
-                   //Toast.makeText(getApplicationContext(), "클릭 성공", Toast.LENGTH_LONG).show();
-//                   for(int q=0;q<editText.length;q++){
-                   for (int i = 0; i < ranWord.length; i++) {
-                       mArrayList.add(ranWord[i]); // 리스트에 단어 넣기!
-                   }
+                                        @Override
+                                        public void onClick(View v) {
+                                            //Toast.makeText(getApplicationContext(), "클릭 성공", Toast.LENGTH_LONG).show();
 
-                   for (int i = 0; i < r.length; i++) { // 9칸 중복되지 않는 랜덤 숫자 넣기
-                       if (checkBox[i].isChecked()) { // 체크선택 > 아무 것도 하지 말고 그냥 넘어감
-                           continue;
-                       }
-                       r[i] = (int) (Math.random() * mArrayList.size()); // 랜덤 숫자 넣기
-                       for (int j = 0; j < i; j++) { // 중복 제거
-                           if (r[i] == r[j]) { // 만약 지금까지의 숫자와 이번 숫자가 똑같다?
-                               i--; // 중복이 되지 않을 때까지
-                               break; // 다시 재입력 받기 위해서
-                           }
-                       }
-                   }
+                                            for(int i = 0; i < usercheck.length; i++) {
+                                                if(checkBox[i].isChecked()) {
+                                                    usercheck[i] = 1;
+                                                }
+                                                else {
+                                                    usercheck[i] = 0;
+                                                }
+                                            }
+                                            for (int i = 0; i < r.length; i++) { // 9칸 중복되지 않는 랜덤 숫자 넣기
+                                                if(usercheck[i] == 1) {
+                                                    continue;
+                                                }
+                                                r[i] = (int) (Math.random() * ranWord.length); // 랜덤 숫자 넣기
+                                                for (int j = 0; j < i; j++) { // 중복 제거
+                                                    if (r[i] == r[j]) { // 만약 지금까지의 숫자와 이번 숫자가 똑같다?
+                                                        i--; // 중복이 되지 않을 때까지
+                                                        break; // 다시 재입력 받기 위해서
+                                                    }
+                                                }
+                                            }
 
-                   for (int i = 0; i < r.length; i++) { // 진짜 목록에 넣기
-                       if (checkBox[i].isChecked()) { // 체크선택 > 아무 것도 하지 말고 그냥 넘어감
-                           continue;
-                       }
-                       mArrayList2.add(mArrayList.get(r[i]));  // 선택된 단어를 진짜 리스트에 담기
-                       reword[i] = mArrayList.get(r[i]); // 선택된 단어 삭제 전에 미리 넣어두기
+                                            for(int i = 0; i < reword.length; i++) {
+                                                reword[i] = ranWord[r[i]];
+                                            }
 
-                       editText[i].setText(reword[i]); // 에디트텍스트에 단어 넣기
-                   }
-
-                   for (int i = 0; i < r.length; i++) { // 원래 리스트에서 삭제하는 부분!!
-                       for (int j = 0; j < mArrayList.size(); j++) {
-                           if (reword[i].equals(mArrayList.get(j))) {
-                               mArrayList.remove(j);
-                           }
-                       }
-                   }
-
-                   mArrayList2.clear(); // 2에 있는 단어 모두 삭제하기!
-                   for (int i = 0; i < mArrayList2.size(); i++) { // 삭제했던 단어 추가
-                       if (checkBox[i].isChecked()) { // 체크선택 > 아무 것도 하지 말고 그냥 넘어감
-                           continue;
-                       }
-                       mArrayList.add(reword[i]);
+                                            for(int i = 0; i < reword.length; i++) {
+                                                editText[i] .setText(reword[i]);
+                                            }
 
 //                   getRanWord(editText[1], checkBox[1]);
 //                       editText[1].setIncludeFontPadding(false);
 //               }
-                   }}
-           }
+                                        }
+                                    }
         );
 //        button01.setOnTouchListener(new View.OnTouchListener() { //버튼 터치시 이벤트
 //            public boolean onTouch(View v, MotionEvent event) {
@@ -203,49 +189,49 @@ public class IdeaMaking extends AppCompatActivity {
         final ImageButton button02 = (ImageButton) findViewById(R.id.saveButton);
         button02.setOnClickListener(new View.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-                    String titleText=title.getText().toString();
-                    int count=0;
-                    if(Objects.equals(titleText, "")){
-                        Toast.makeText(getApplicationContext(), "제목을 입력하세요", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    for(int i=0;i<editText.length;i++){
-                        count=(checkBox[i].isChecked())?count+1:count;
-                    }
-                    if(count==0){
-                        Toast.makeText(getApplicationContext(), "최소 하나의 키워드를 선택해주세요", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
+                                        @Override
+                                        public void onClick(View v) {
+                                            String titleText=title.getText().toString();
+                                            int count=0;
+                                            if(Objects.equals(titleText, "")){
+                                                Toast.makeText(getApplicationContext(), "제목을 입력하세요", Toast.LENGTH_SHORT).show();
+                                                return;
+                                            }
+                                            for(int i=0;i<editText.length;i++){
+                                                count=(checkBox[i].isChecked())?count+1:count;
+                                            }
+                                            if(count==0){
+                                                Toast.makeText(getApplicationContext(), "최소 하나의 키워드를 선택해주세요", Toast.LENGTH_SHORT).show();
+                                                return;
+                                            }
 
-                    SimpleDateFormat formatter = new SimpleDateFormat ( "yyyy.MM.dd HH:mm", Locale.KOREA );
-                    Date currentTime = new Date ( );
-                    String dTime = formatter.format ( currentTime );
-                    Memo memo = new Memo();
-                    //Toast.makeText(getApplicationContext(), "저장 완료", Toast.LENGTH_LONG).show();
-                    for(int i=0;i<editText.length;i++){
-                        SaveMemo(editText[i],checkBox[i],memo);
-                    }
-                    memo.setTitle(titleText);
-                    memo.setEditTxt("");
-                    memo.setCreateDate(dTime);
-                    mFirebaseDatabase
-                            .getReference("memos/"+mFirebaseUser.getUid())
-                            .push()
-                            .setValue(memo)
-                            .addOnSuccessListener(IdeaMaking.this, new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    //Snackbar.make(etContent,"메모가 저장되었습니다",Snackbar.LENGTH_LONG).show();
-                                    Toast.makeText(IdeaMaking.this,"아이디어가 저장되었습니다", Toast.LENGTH_LONG).show();
-                                    finish();
-                                    Intent intent = new Intent(getApplicationContext(),IdeaSaved.class);
-                                    startActivity(intent);
-                                }
-                            });
-                }
-             }
+                                            SimpleDateFormat formatter = new SimpleDateFormat ( "yyyy.MM.dd HH:mm", Locale.KOREA );
+                                            Date currentTime = new Date ( );
+                                            String dTime = formatter.format ( currentTime );
+                                            Memo memo = new Memo();
+                                            //Toast.makeText(getApplicationContext(), "저장 완료", Toast.LENGTH_LONG).show();
+                                            for(int i=0;i<editText.length;i++){
+                                                SaveMemo(editText[i],checkBox[i],memo);
+                                            }
+                                            memo.setTitle(titleText);
+                                            memo.setEditTxt("");
+                                            memo.setCreateDate(dTime);
+                                            mFirebaseDatabase
+                                                    .getReference("memos/"+mFirebaseUser.getUid())
+                                                    .push()
+                                                    .setValue(memo)
+                                                    .addOnSuccessListener(IdeaMaking.this, new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void aVoid) {
+                                                            //Snackbar.make(etContent,"메모가 저장되었습니다",Snackbar.LENGTH_LONG).show();
+                                                            Toast.makeText(IdeaMaking.this,"아이디어가 저장되었습니다", Toast.LENGTH_LONG).show();
+                                                            finish();
+                                                            Intent intent = new Intent(getApplicationContext(),IdeaSaved.class);
+                                                            startActivity(intent);
+                                                        }
+                                                    });
+                                        }
+                                    }
         );
 //
 //        button02.setOnTouchListener(new View.OnTouchListener() { //버튼 터치시 이벤트
@@ -282,4 +268,3 @@ public class IdeaMaking extends AppCompatActivity {
     }
 
 }
-
